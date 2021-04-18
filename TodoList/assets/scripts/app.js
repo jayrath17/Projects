@@ -16,6 +16,7 @@ function changeModalVisbility(){
     if (mytodoList.length>0){
         document.getElementById('entry-text').style.visibility='hidden'
     }
+    else{document.getElementById('entry-text').style.visibility='visible'}
     //document.getElementById('entry-text').style.visibility='hidden'
     changeBackdropVisbility()
 }
@@ -57,6 +58,10 @@ function deleteItem(idd){
     const onPageList=document.getElementById('todo-list')
     console.log(idd)
     onPageList.children[idd].remove()
+    if (mytodoList.length>0){
+        document.getElementById('entry-text').style.visibility='hidden'
+    }
+    else{document.getElementById('entry-text').style.visibility='visible'}
 }
 topaddBtn.addEventListener('click', changeModalVisbility)
 backdrop.addEventListener('click',changeModalVisbility)
@@ -75,8 +80,8 @@ lisst.addEventListener('click', function(event) {
         console.log(idd,mytodoList[i]['id'],i)
         if (idd==mytodoList[i]['id']){
             console.log(idd,mytodoList[i]['id'],i)
-            deleteItem(i)
             mytodoList.splice(i,1)
+            deleteItem(i)
             break
           }
 
