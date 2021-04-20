@@ -6,9 +6,8 @@ const modalcancelbtn=document.getElementById('modalcancelBtn')
 const modaladdbtn=document.getElementById('modaladdBtn')
 const lisst=document.querySelector('.class-todo-list')
 
-//--------------------------------------------------------Fetching Data Through API 
+//--------------------------------------------------------Fetching Data Through API from DataBase
 const apiUrl='https://todoco.herokuapp.com/alltask'
-//const apiUrl='https://jsonplaceholder.typicode.com/posts'
 
 async function getApiData(){
     const response=await fetch(apiUrl)
@@ -48,7 +47,7 @@ function addBtnTasker(){
         return
     }
     
-    //------------------------------------------------------------------Adding Data to DataBase
+    //------------------------------------------------------------------Adding Data to DataBase through API
     const _data={
         "task" : `${string.value}`
     }
@@ -97,7 +96,7 @@ function deleteItem(i,idd){
         document.getElementById('entry-text').style.visibility='hidden'
     }
     else{document.getElementById('entry-text').style.visibility='visible'}
-    //api-----------------------------------------------------------------
+    //api-----------------------------------------------------------------Deleting Data From DataBase Through API
     async function delApiData(_id){
         const _dat={
             "id" : `${_id}`
