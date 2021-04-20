@@ -5,7 +5,29 @@ const backdrop=document.getElementById('backdrop')
 const modalcancelbtn=document.getElementById('modalcancelBtn')
 const modaladdbtn=document.getElementById('modaladdBtn')
 const lisst=document.querySelector('.class-todo-list')
-console.log(topaddBtn)
+
+//--------------------------------------------------------Fetching Data Through API 
+const apiUrl='https://todoco.herokuapp.com/alltask'
+//const apiUrl='https://jsonplaceholder.typicode.com/posts'
+
+async function getApiData(){
+    const response=await fetch(apiUrl)
+    const dataJson=await response.json()
+    for(item of dataJson.tasks){
+        newtodo={
+            string:item.task,
+            id:item._id
+        }
+        mytodoList.push(newtodo)
+        renderTodoList(item.task,item._id)
+    }
+    if (mytodoList.length>0){
+        document.getElementById('entry-text').style.visibility='hidden'
+    }
+    else{document.getElementById('entry-text').style.visibility='visible'}
+}
+getApiData()
+//--------------------------------------------------------
 
 function changeBackdropVisbility(){
     backdrop.classList.toggle('visible')
@@ -17,26 +39,41 @@ function changeModalVisbility(){
         document.getElementById('entry-text').style.visibility='hidden'
     }
     else{document.getElementById('entry-text').style.visibility='visible'}
-    //document.getElementById('entry-text').style.visibility='hidden'
     changeBackdropVisbility()
 }
 function addBtnTasker(){
     const string=document.getElementById('userInput')
-    console.log(string.value)
     if (string.value.trim()===''){
         alert('Please Enter Some Input:)')
         return
     }
-    const newid=Date.now()
-    const newtodo={
-        string:string.value,
-        id: newid
+    
+    //------------------------------------------------------------------Adding Data to DataBase
+    const _data={
+        "task" : `${string.value}`
     }
-    mytodoList.push(newtodo)
-    renderTodoList(string.value,newid)
-    string.value=''
-    console.log(mytodoList)
-    changeModalVisbility()
+    async function postApiData(){
+        const idd=await fetch('https://todoco.herokuapp.com/addtask',{
+                method:"POST",
+                body: JSON.stringify(_data),
+                headers: {"Content-type": "application/json"}
+            })
+        const dataid=await idd.json()
+        const newid=dataid.id
+        const newtodo={
+            string:string.value,
+            id: newid
+        }
+        mytodoList.push(newtodo)
+        renderTodoList(string.value,newid)
+        string.value=''
+        changeModalVisbility()
+    }
+    postApiData(_data)
+     
+    //------------------------------------------------------------------
+    
+    
 }
 
 function renderTodoList(string,newid){
@@ -53,15 +90,27 @@ function renderTodoList(string,newid){
     const webpageList=document.getElementById('todo-list')
     webpageList.append(newlistEle)
 }
-
-function deleteItem(idd){
+function deleteItem(i,idd){
     const onPageList=document.getElementById('todo-list')
-    console.log(idd)
-    onPageList.children[idd].remove()
+    onPageList.children[i].remove()
     if (mytodoList.length>0){
         document.getElementById('entry-text').style.visibility='hidden'
     }
     else{document.getElementById('entry-text').style.visibility='visible'}
+    //api-----------------------------------------------------------------
+    async function delApiData(_id){
+        const _dat={
+            "id" : `${_id}`
+        }
+        const del=await fetch('https://todoco.herokuapp.com/deletetask',{
+                method:"POST",
+                body: JSON.stringify(_dat),
+                headers: {"Content-type": "application/json"}
+            })
+        const dataid=await del.json()
+        }
+    delApiData(idd)
+    //--------------------------------------------------------------------
 }
 topaddBtn.addEventListener('click', changeModalVisbility)
 backdrop.addEventListener('click',changeModalVisbility)
@@ -70,23 +119,17 @@ modaladdbtn.addEventListener('click',addBtnTasker)
 
 lisst.addEventListener('click', function(event) {
     if (event.target.classList.contains('list-element_done')) {
-        console.log(event.target.getAttribute('id'))
       }
   
     if (event.target.classList.contains('list-element_cancel')) {
       
       const idd=event.target.getAttribute('id')
       for (let i=0;i<mytodoList.length;i++){
-        console.log(idd,mytodoList[i]['id'],i)
         if (idd==mytodoList[i]['id']){
-            console.log(idd,mytodoList[i]['id'],i)
             mytodoList.splice(i,1)
-            deleteItem(i)
+            deleteItem(i,idd)
             break
           }
-
       }
-      //console.log(event.target.getAttribute('id'))
-      //deleteItem(event.target.getAttribute('id'))
     }
   });
