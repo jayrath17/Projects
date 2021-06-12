@@ -1,2 +1,0 @@
-
-Google Keep Notes (Clone)
