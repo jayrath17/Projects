@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Projects/Google%20Keeps%20Notes%20(Clone)/precache-manifest.5d1b0665ced8bc7f624e97e2f155ad5d.js"
+  "/Projects/GoogleKeepsNotes(Clone)/precache-manifest.363a1585a2164b186350b7dc37fc167d.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/Projects/Google%20Keeps%20Notes%20(Clone)/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/Projects/GoogleKeepsNotes(Clone)/index.html"), {
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });

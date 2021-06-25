@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/main.9245922a.chunk.js",
-    "main.js.map": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/main.9245922a.chunk.js.map",
-    "runtime-main.js": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/runtime-main.6775d396.js",
-    "runtime-main.js.map": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/runtime-main.6775d396.js.map",
-    "static/js/2.cd1f6c09.chunk.js": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/2.cd1f6c09.chunk.js",
-    "static/js/2.cd1f6c09.chunk.js.map": "/Projects/Google%20Keeps%20Notes%20(Clone)/static/js/2.cd1f6c09.chunk.js.map",
-    "index.html": "/Projects/Google%20Keeps%20Notes%20(Clone)/index.html",
-    "precache-manifest.5d1b0665ced8bc7f624e97e2f155ad5d.js": "/Projects/Google%20Keeps%20Notes%20(Clone)/precache-manifest.5d1b0665ced8bc7f624e97e2f155ad5d.js",
-    "service-worker.js": "/Projects/Google%20Keeps%20Notes%20(Clone)/service-worker.js"
+    "main.js": "/Projects/GoogleKeepsNotes(Clone)/static/js/main.9245922a.chunk.js",
+    "main.js.map": "/Projects/GoogleKeepsNotes(Clone)/static/js/main.9245922a.chunk.js.map",
+    "runtime-main.js": "/Projects/GoogleKeepsNotes(Clone)/static/js/runtime-main.c00bd6e5.js",
+    "runtime-main.js.map": "/Projects/GoogleKeepsNotes(Clone)/static/js/runtime-main.c00bd6e5.js.map",
+    "static/js/2.cd1f6c09.chunk.js": "/Projects/GoogleKeepsNotes(Clone)/static/js/2.cd1f6c09.chunk.js",
+    "static/js/2.cd1f6c09.chunk.js.map": "/Projects/GoogleKeepsNotes(Clone)/static/js/2.cd1f6c09.chunk.js.map",
+    "index.html": "/Projects/GoogleKeepsNotes(Clone)/index.html",
+    "precache-manifest.363a1585a2164b186350b7dc37fc167d.js": "/Projects/GoogleKeepsNotes(Clone)/precache-manifest.363a1585a2164b186350b7dc37fc167d.js",
+    "service-worker.js": "/Projects/GoogleKeepsNotes(Clone)/service-worker.js"
   },
   "entrypoints": [
-    "static/js/runtime-main.6775d396.js",
+    "static/js/runtime-main.c00bd6e5.js",
     "static/js/2.cd1f6c09.chunk.js",
     "static/js/main.9245922a.chunk.js"
   ]
